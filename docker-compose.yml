@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: jonasal/nginx-certbot:latest
+    image: jonasal/nginx-certbot:5.4.0-nginx1.27.0
     container_name: nginx
     env_file:
       - ./nginx-files/nginx-certbot.env
