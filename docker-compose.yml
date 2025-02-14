@@ -2,6 +2,8 @@ services:
   nginx:
     image: nginx
     container_name: nginx
+    env_file:
+      - ./nginx-files/nginx-certbot.env
     ports:
       - 80:80/tcp
       - 443:443/tcp
