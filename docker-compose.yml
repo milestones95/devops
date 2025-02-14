@@ -20,9 +20,8 @@ services:
     environment:
       - HOME=/
       - PATH=$PATH:/go/bin
-      - AWS_REGION=eu-central-1
+      - AWS_REGION=us-east-1
       - WATCHTOWER_CLEANUP=true
-      - TZ=Africa/Algiers
       - WATCHTOWER_LOG_FORMAT=pretty
   darknore-v7-api:
     container_name: api
