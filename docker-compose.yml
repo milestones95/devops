@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+    volumes:
+      - ./nginx-files:/etc/nginx/conf.d
+      - ../darknore.ai_certificates:/certificates/darknore.ai/
+    restart: always
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.docker/config.json:/config.json
+      - ./docker-credential-ecr-login:/go/bin/docker-credential-ecr-login
+    environment:
+      - HOME=/
+      - PATH=$PATH:/go/bin
+      - AWS_REGION=eu-central-1
+      - WATCHTOWER_CLEANUP=true
+      - TZ=Africa/Algiers
+      - WATCHTOWER_LOG_FORMAT=pretty
+  darknore-v7-api:
+    container_name: api
+    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/v7:latest
+    restart: always
+    expose:
+      - "3000"
+    volumes:
+      - ./test-results:/app/test-results
+      - ./videos:/app/videos
+    env_file:
+      - ~/env/darknore-v7.env
+  darknore:
+    container_name: darknore
+    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:latest
+    restart: always
+    expose:
+      - "5001"
+    env_file:
+      - ~/env/darknore.env
