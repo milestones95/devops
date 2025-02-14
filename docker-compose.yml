@@ -1,7 +1,7 @@
 services:
   nginx:
     image: nginx
-    container_name: nginx
+    container_name: jonasal/nginx-certbot:latest
     env_file:
       - ./nginx-files/nginx-certbot.env
     ports:
