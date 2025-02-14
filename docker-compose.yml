@@ -24,7 +24,7 @@ services:
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_LOG_FORMAT=pretty
       - TZ=America/New_York
-      - WATCHTOWER_POLL_INTERVAL=120
+      - WATCHTOWER_POLL_INTERVAL=30
   darknore-v7-api:
     container_name: api
     image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/v7:latest
