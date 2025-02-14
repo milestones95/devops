@@ -6,6 +6,7 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
+      - nginx_secrets:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
     restart: always
