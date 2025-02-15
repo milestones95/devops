@@ -9,7 +9,7 @@ services:
       - 443:443/tcp
     volumes:
       - type: bind
-        source: ./config/cloudflare.ini
+        source: $(pwd)/config/cloudflare.ini
         target: /etc/letsencrypt/cloudflare.ini
       - nginx_secrets:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
