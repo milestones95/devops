@@ -2,6 +2,13 @@ services:
   nginx:
     image: jonasal/nginx-certbot:5.4.0-nginx1.27.0
     container_name: nginx
+    command:
+      [
+        "touch",
+        "/etc/letsencrypt/cloudflare.ini",
+        "&&",
+        "/scripts/start_nginx_certbot.sh",
+      ]
     env_file:
       - ./config/nginx-certbot.env
     ports:
