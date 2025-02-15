@@ -9,7 +9,7 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - ./config/letsencrypt:/etc/letsencrypt:ro
+      - ./config/letsencrypt:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
     restart: always
