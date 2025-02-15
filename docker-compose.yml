@@ -3,11 +3,12 @@ services:
     image: jonasal/nginx-certbot:5.4.0-nginx1.27.0
     container_name: nginx
     env_file:
-      - ./nginx-files/nginx-certbot.env
+      - ./config/nginx-certbot.env
     ports:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
+      - /config/cloudflare.ini:/etc/letsencrypt/cloudflare.ini
       - nginx_secrets:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
