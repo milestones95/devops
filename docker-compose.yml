@@ -9,9 +9,7 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - type: bind
-        source: $(pwd)/config/letsencrypt
-        target: /etc/letsencrypt
+      - $(pwd)/config/letsencrypt:/etc/letsencrypt:ro
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
     restart: always
