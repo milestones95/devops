@@ -9,7 +9,7 @@ services:
       - 443:443/tcp
     volumes:
       - nginx_secrets:/etc/letsencrypt
-      - ./config/cloudflare.ini:/etc/letsencrypt/cloudflare.ini
+      - config/cloudflare.ini:/etc/letsencrypt/cloudflare.ini
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
     restart: always
