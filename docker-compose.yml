@@ -8,7 +8,7 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - /config/cloudflare.ini:/etc/letsencrypt/cloudflare.ini
+      - ./config/cloudflare.ini:/etc/letsencrypt/cloudflare.ini
       - nginx_secrets:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
       - ../darknore.ai_certificates:/certificates/darknore.ai/
