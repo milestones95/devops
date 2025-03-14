@@ -28,17 +28,17 @@ services:
       - WATCHTOWER_LOG_FORMAT=pretty
       - TZ=America/New_York
       - WATCHTOWER_POLL_INTERVAL=30
-  darknore-v7-api:
-    container_name: darknore-v7-api
-    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/v7:latest
-    restart: always
-    expose:
-      - "3000"
-    volumes:
-      - ./test-results:/app/test-results
-      - ./videos:/app/videos
-    env_file:
-      - ~/env/darknore-v7.env
+  # darknore-v7-api:
+  #   container_name: darknore-v7-api
+  #   image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/v7:latest
+  #   restart: always
+  #   expose:
+  #     - "3000"
+  #   volumes:
+  #     - ./test-results:/app/test-results
+  #     - ./videos:/app/videos
+  #   env_file:
+  #     - ~/env/darknore-v7.env
   darknore:
     container_name: darknore
     image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:latest
