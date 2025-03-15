@@ -29,7 +29,7 @@ services:
       - WATCHTOWER_POLL_INTERVAL=30
   darknore:
     container_name: darknore
-    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:vv0.0.4
+    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:v0.0.5
     restart: always
     expose:
       - "5001"
