@@ -12,21 +12,6 @@ services:
       - ./config/letsencrypt:/etc/letsencrypt
       - ./nginx-files:/etc/nginx/conf.d
     restart: always
-  watchtower:
-    image: containrrr/watchtower
-    container_name: watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ~/.docker/config.json:/config.json
-      - ./docker-credential-ecr-login:/go/bin/docker-credential-ecr-login
-    environment:
-      - HOME=/
-      - PATH=$PATH:/go/bin
-      - AWS_REGION=us-east-1
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_LOG_FORMAT=pretty
-      - TZ=America/New_York
-      - WATCHTOWER_POLL_INTERVAL=30
   darknore:
     container_name: darknore
     image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:v0.0.5
