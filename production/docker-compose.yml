@@ -22,7 +22,7 @@ services:
       - ~/env/darknore.env
   darknore-demo:
     container_name: darknore-demo
-    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:demo-v0.6.6
+    image: 912988307703.dkr.ecr.us-east-1.amazonaws.com/darknore/pythonv1:demo-v1.0.0
     restart: always
     expose:
       - "5001"
